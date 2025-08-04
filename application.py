@@ -3,9 +3,7 @@ import numpy as np
 import pandas as pd
 from src.pipeline.predict_pipeline import Custom_data,Predict_Pipeline
 
-application = Flask(__name__)
-
-app = application
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -34,4 +32,5 @@ def predict_datapoint():
         return render_template('home.html',results=results[0])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port= int(os.environ.get("PORT",8080)
+    app.run(host="0.0.0.0",port=port)
